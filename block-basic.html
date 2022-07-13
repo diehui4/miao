@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS Bin</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            margin: 20px;
+        }
+        
+        body>div:first-child {
+            min-width: 600px;
+            height: 85px;
+            margin-bottom: 20px;
+            background-color: red;
+        }
+        
+        body>div:first-child p {
+            width: 600px;
+            margin: auto;
+            text-align: left;
+        }
+        
+        body>div:nth-child(2) {
+            max-width: 600px;
+            margin: auto;
+            border: 2px solid #000;
+            /* padding: 15px 10px 0 10px; */
+        }
+        
+        body>div:nth-child(2) p {
+            height: 60px;
+            overflow-y: scroll;
+            /* margin-bottom: 20px; */
+            /* margin-top: 15px;
+            margin-left: 10px; */
+            margin: 15px 10px 20px 10px;
+        }
+        
+        p+div {
+            background-color: rgb(238, 130, 238);
+            height: 50px;
+            /* margin-bottom: 15px; */
+            margin: 0 10px 15px 10px;
+        }
+        
+        p+div:hover {
+            /* width: 600px;  自动继承父元素宽度 无需width */
+            margin: 0;
+        }
+        
+        p+p {
+            height: 60px;
+            overflow-y: scroll;
+        }
+        
+        body>div:last-child {
+            width: 100px;
+            height: 100px;
+            border-bottom: 50px solid rgb(255, 165, 0);
+            border-top: 50px solid white;
+            border-left: 50px solid white;
+            border-right: 50px solid white;
+            margin: auto;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Incidunt at, ea natus cupiditate assumenda deserunt ex maxime dignissimos. Soluta laudantium id architecto fugit labore fuga consequatur placeat laboriosam dolorum! Incidunt!</p>
+    </div>
+    <div>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vitae sapiente voluptas officiis, praesentium, nemo iure cumque nihil, facere hic asperiores dicta commodi magni, voluptates eaque esse atque nesciunt! Cupiditate, modi.</p>
+        <div></div>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos modi accusantium deleniti consequuntur, enim nulla voluptatum qui ducimus esse rem eius eligendi consequatur sint. Sunt ut, est iusto neque numquam. Lorem ipsum dolor sit amet, consectetur
+            adipisicing elit. Laboriosam animi perspiciatis eos, molestias provident, quae ullam! Obcaecati suscipit optio labore iusto veniam facere, amet officiis, eveniet voluptatibus molestiae, dignissimos dolor!</p>
+    </div>
+    </div>
+    <div></div>
+</body>
+
+</html>
