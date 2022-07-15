@@ -77,6 +77,25 @@
             background-color: rgb(238, 138, 238);
             text-align: center;
         }
+        
+        span {
+            display: inline-block;
+            width: 180px;
+            height: 40px;
+            border: 3px solid black;
+            background-color: pink;
+            line-height: 40px;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+        
+        span:hover {
+            background-color: red;
+        }
+        
+        span:nth-of-type(3n+2) {
+            margin: 0 30px 0 30px;
+        }
     </style>
 </head>
 
@@ -87,6 +106,7 @@
     </nav>
     <div class="wraaper">
         <p>页面主体 宽度600px 页面主体 宽度600px 页面主体 宽度600px 页面主体 宽度600px 页面主体 宽度600px 页面主体 宽度600px 页面主体 宽度600px 页面主体 宽度600px 页面主体 宽度600px 页面主体 宽度600px 页面主体 宽度600px 页面主体 宽度600px 页面主体 宽度600px 页面主体 宽度600px 页面主体 宽度600px 页面主体 宽度600px 页面主体 宽度600px 页面主体 宽度600px</p>
+        <span>宽180高40(包含边框)</span><span>产品</span><span>产品</span><span>产品</span><span>产品</span><span>产品</span><span>产品</span><span>产品</span><span>产品</span><span>产品</span><span>产品</span><span>产品</span>
         <ul>
             <li>宽180高40(包含边框)</li>
             <li>水平间隙30px
