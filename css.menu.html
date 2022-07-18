@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        ul {
+            list-style: none;
+            font-size: 0;
+            color: white;
+        }
+        
+        .menu>li {
+            position: relative;
+            display: inline-block;
+            width: 80px;
+            height: 30px;
+            background-color: gray;
+            font-size: 16px;
+            text-align: center;
+            line-height: 30px;
+        }
+        
+        .menu li:hover {
+            background-color: rgb(35, 35, 128);
+        }
+        
+        .menu ul {
+            display: none;
+            position: absolute;
+            top: 28px;
+            border: 1px solid gray;
+            border-radius: 8px;
+        }
+        
+        .menu ul li {
+            position: relative;
+            font-size: 16px;
+            width: 400px;
+            height: 30px;
+            background-color: gray;
+            text-align: left;
+            padding-left: 20px;
+        }
+        
+        span {
+            position: absolute;
+            right: 20px;
+        }
+        
+        .menu ul ul {
+            left: 400px;
+            top: 0.5em;
+        }
+        
+        .menu li:hover>ul {
+            display: block;
+        }
+        /* .menu>li:hover ul {
+            display: block;
+        }
+
+        .menu>li:hover ul ul {
+            display: none;
+        }
+
+        .menu>li>ul>li:hover ul {
+            display: block;
+        } */
+        
+        .c {
+            font-size: 30px;
+            right: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <ul class="menu">
+        <li>文件
+            <ul>
+                <li>新建文本文档<span>Ctrl+N</span></li>
+                <li>新建文件...<span>Ctrl+Alt+Windows+N</span></li>
+                <li>新建窗口<span>Ctrl+Shift+N</span></li>
+                <hr>
+                <li>打开文件...<span>Ctrl+O</span></li>
+                <li>打开文件夹...<span>Ctrl+K Ctrl+O</span></li>
+                <li>从文件打开工作区...</li>
+                <li>打开最近的文件<span class="c">></span>
+                    <ul>
+                        <li>重新打开已关闭的编辑器<span>Ctrl+Shift+F</span></li>
+                        <hr>
+                        <li>URL(...)</li>
+                        <li>URL(...)</li>
+                        <li>URL(...)</li>
+                        <li>URL(...)</li>
+                        <hr>
+                        <li>更多</li>
+                    </ul>
+                </li>
+                <hr>
+                <li>将文件夹添加到工作区...</li>
+                <li>将文件夹另存为...</li>
+                <li>复制工作区</li>
+                <hr>
+                <li>保存<span>Ctrl+S</span></li>
+                <li>另存为...<span>Ctrl+Shift+S</span></li>
+                <li>全部保存<span>Ctrl+K S</span></li>
+                <hr>
+                <li>共享<span class="c">></span>
+                    <ul>
+                        <li>Copy vscode.dev Link</li>
+                    </ul>
+                </li>
+                <hr>
+                <li>自动保存</li>
+                <li>首选项<span class="c">></span>
+                    <ul>
+                        <li>设置<span>Ctrl+,</span></li>
+                        <li>联机服务设置</li>
+                        <li>遥测设置</li>
+                        <li>扩展<span>Ctrl+Shift+X</span></li>
+                        <hr>
+                        <li>键盘快捷方式<span>Ctrl+K Ctrl+S</span></li>
+                        <li>从-中迁移键盘快捷方式...</li>
+                        <hr>
+                        <li>配置用户代码片段</li>
+                        <hr>
+                        <li>颜色主体<span>Ctrl+K</span></li>
+                        <li>文件图标主题</li>
+                        <li>产品图标主体</li>
+                    </ul>
+                </li>
+                <hr>
+                <li>还原文件</li>
+                <li>关闭编辑器<span>Ctrl+F4</span></li>
+                <li>关闭工作区<span>Ctrl+K F</span></li>
+                <li>关闭窗口<span>Alt+F</span></li>
+            </ul>
+        </li>
+        <li>编辑
+            <ul>
+                <li>撤销<span>Ctrl+Z</span></li>
+                <li>恢复<span>Ctrl+Y</span></li>
+                <hr>
+                <li>剪切<span>Ctrl+X</span></li>
+                <li>复制<span>Ctrl+C</span></li>
+                <li>粘贴<span>Ctrl+V</span></li>
+                <hr>
+                <li>查找<span>Ctrl+F</span></li>
+                <li>替换<span>Ctrl+H</span></li>
+                <hr>
+                <li>在文件中查找<span>Ctrl+Shift+F</span></li>
+                <li>在文件中替换<span>Ctrl+Shift+H</span></li>
+                <hr>
+                <li>切换行注释<span>Ctrl+/</span></li>
+                <li>切换块注释<span>Ctrl+Shift+A</span></li>
+                <li>Emmet:展开缩写<span>Tab</span></li>
+            </ul>
+        </li>
+        <li>选择
+            <ul>
+                <li>全选<span>Ctrl+A</span></li>
+                <li>扩大选区<span>Shift+Alt+RightArrow</span></li>
+                <li>缩小选区<span>Shift+Alt+LeftArrow</span></li>
+                <hr>
+                <li>向上复制一行<span>Shift+Alt+UpArrow</span></li>
+                <li>向下复制一行<span>Shift+Alt+DownArrow</span></li>
+                <li>向上移动一行<span>Alt+UpArrow</span></li>
+                <li>向下移动一行<span>Alt+DownArrow</span></li>
+                <li>重复选择</li>
+                <hr>
+                <li>在上面添加光标<span>Ctrl+Alt+Updown</span></li>
+                <li>在下面添加光标<span>Ctrl+Alt+Downdown</span></li>
+                <li>在行尾添加光标<span>Shift+Alt+I</span></li>
+                <li>添加下一个匹配项<span>Ctrl+D</span></li>
+                <li>添加上一个匹配项</li>
+                <li>选择所有匹配项<span>Ctrl+Shift+L</span></li>
+                <li>切换为"Ctrl+单击"进行多光标功能</li>
+                <li>列选择模式</li>
+            </ul>
+        </li>
+        <li>查看
+            <ul>
+                <li>命令面板...<span>Ctrl+Shift+P</span></li>
+                <li>打开视图...</li>
+                <hr>
+                <li>外观<span class="c">></span>
+                    <ul>
+                        <li>全屏<span>F11</span></li>
+                        <li>禅模式<span>Ctrl+K Z</span></li>
+                        <li>居中布局</li>
+                        <hr>
+                        <li style="padding-left: 0;">&#128504;&nbsp;显示菜单栏</li>
+                        <li style="padding-left: 0;">&#128504;&nbsp;显示主侧栏<span>Ctrl+B</span></li>
+                        <li></li>
+                        <li style="padding-left: 0;">&#128504;&nbsp;显示状态栏</li>
+                        <li style="padding-left: 0;">&#128504;&nbsp;显示活动栏</li>
+                        <li style="padding-left: 0;">&#128504;&nbsp;显示面板<span>Ctrl+J</span></li>
+                        <hr>
+                        <li>向右移动主侧栏</li>
+                        <li>面板位置<span class="c">></span>
+                            <ul>
+                                <li style="padding-left: 0;">&#128504;&nbsp;底部</li>
+                                <li>右</li>
+                                <li>左</li>
+                            </ul>
+                        </li>
+                        <li>对齐面板<span class="c">></span>
+                            <ul>
+                                <li style="padding-left: 0;">&#128504;&nbsp;居中</li>
+                                <li>两端对齐</li>
+                                <li>右</li>
+                                <li>左</li>
+                            </ul>
+                        </li>
+                        <hr>
+                        <li>放大<span>Ctrl+=</span></li>
+                        <li>缩小<span>Ctrl+-</span></li>
+                        <li>重置缩放<span>Ctrl+NumPad0</span></li>
+                    </ul>
+                </li>
+                <li>编辑器布局<span class="c">></span>
+                    <ul>
+                        <li>向上拆分</li>
+                        <li>向下拆分</li>
+                        <li>向左拆分</li>
+                        <li>向右拆分</li>
+                        <hr>
+                        <li>在组中拆分<span>Ctrl+K Ctrl+Shift+\</span></li>
+                        <hr>
+                        <li>单列</li>
+                        <li>双列</li>
+                        <li>三列</li>
+                        <li>双行</li>
+                        <li>三行</li>
+                        <li>2×2网格</li>
+                        <li>右侧双行</li>
+                        <li>底部双列</li>
+                        <hr>
+                        <li>翻转布局<span>Shift+Alt+O</span></li>
+                    </ul>
+                </li>
+                <hr>
+                <li>资源管理器<span>Ctrl+Shift+E</span></li>
+                <li>搜索<span>Ctrl+Shift+F</span></li>
+                <li>源代码管理<span>Ctrl+Shift+G G</span></li>
+                <li>运行<span>Ctrl+Shift+D</span></li>
+                <li>扩展<span>Ctrl+Shift+X</span></li>
+                <hr>
+                <li>问题<span>Ctrl+Shift+M</span></li>
+                <li>输出<span>Ctrl+Shift+U</span></li>
+                <li>调试控制台<span>Ctrl+Shift+Y</span></li>
+                <li>终端<span>Ctrl+`</span></li>
+                <hr>
+                <li>自动换行<span>Ctrl+Z</span></li>
+                <li style="padding-left: 0;">&#128504;&nbsp;显示缩略图</li>
+                <li style="padding-left: 0;">&#128504;&nbsp;显示导航痕迹</li>
+                <li style="padding-left: 0;">&#128504;&nbsp;显示空格</li>
+                <li style="padding-left: 0;">&#128504;&nbsp;显示控制字符</li>
+            </ul>
+        </li>
+    </ul>
+</body>
+
+</html>
