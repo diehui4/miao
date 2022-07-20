@@ -14,9 +14,8 @@
   display: none;
 }
 #circle:checked + .w2 {
-  transition: width 1s, left 1s 0.2s;
+  transition: left 1s ;
   left: 52px;
-  width: 45px;
 }
 #circle:checked + .w2 + .w1 {
   background-color: #30f34d;
@@ -33,4 +32,5 @@
   border-radius: 20px;
   z-index: 10;
   transition: left 1s;
+  box-shadow: 0 0 3px;
 }
