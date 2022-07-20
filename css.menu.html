@@ -79,9 +79,12 @@
             display: block;
         } */
         
-        .c {
-            font-size: 30px;
-            right: 10px;
+        .menu ul ul::before {
+            content: ">";
+            position: absolute;
+            font-size: 20px;
+            left: -20px;
+            z-index: 8;
         }
     </style>
 </head>
@@ -99,7 +102,7 @@
                 <li>打开文件...<span>Ctrl+O</span></li>
                 <li>打开文件夹...<span>Ctrl+K Ctrl+O</span></li>
                 <li>从文件打开工作区...</li>
-                <li>打开最近的文件<span class="c">></span>
+                <li>打开最近的文件
                     <ul>
                         <li>重新打开已关闭的编辑器<span>Ctrl+Shift+F</span></li>
                         <hr>
@@ -120,14 +123,14 @@
                 <li>另存为...<span>Ctrl+Shift+S</span></li>
                 <li>全部保存<span>Ctrl+K S</span></li>
                 <hr>
-                <li>共享<span class="c">></span>
+                <li>共享
                     <ul>
                         <li>Copy vscode.dev Link</li>
                     </ul>
                 </li>
                 <hr>
                 <li>自动保存</li>
-                <li>首选项<span class="c">></span>
+                <li>首选项
                     <ul>
                         <li>设置<span>Ctrl+,</span></li>
                         <li>联机服务设置</li>
@@ -198,7 +201,7 @@
                 <li>命令面板...<span>Ctrl+Shift+P</span></li>
                 <li>打开视图...</li>
                 <hr>
-                <li>外观<span class="c">></span>
+                <li>外观
                     <ul>
                         <li>全屏<span>F11</span></li>
                         <li>禅模式<span>Ctrl+K Z</span></li>
@@ -212,14 +215,14 @@
                         <li style="padding-left: 0;">&#128504;&nbsp;显示面板<span>Ctrl+J</span></li>
                         <hr>
                         <li>向右移动主侧栏</li>
-                        <li>面板位置<span class="c">></span>
+                        <li>面板位置
                             <ul>
                                 <li style="padding-left: 0;">&#128504;&nbsp;底部</li>
                                 <li>右</li>
                                 <li>左</li>
                             </ul>
                         </li>
-                        <li>对齐面板<span class="c">></span>
+                        <li>对齐面板
                             <ul>
                                 <li style="padding-left: 0;">&#128504;&nbsp;居中</li>
                                 <li>两端对齐</li>
@@ -233,7 +236,7 @@
                         <li>重置缩放<span>Ctrl+NumPad0</span></li>
                     </ul>
                 </li>
-                <li>编辑器布局<span class="c">></span>
+                <li>编辑器布局
                     <ul>
                         <li>向上拆分</li>
                         <li>向下拆分</li>
@@ -280,7 +283,7 @@
                 <li>前进<span>Alt+RightArrow</span></li>
                 <li>上次编辑位置<span>Ctrl+K Ctrl+Q</span></li>
                 <hr>
-                <li>切换编辑器<span class="c">></span>
+                <li>切换编辑器
                     <ul>
                         <li>下一个编辑器<span>Ctrl+PageDown</span></li>
                         <li>上一个编辑器<span>Ctrl+PageUp</span></li>
@@ -295,7 +298,7 @@
                         <li></li>
                     </ul>
                 </li>
-                <li>切换组<span class="c">></span>
+                <li>切换组
                     <ul>
                         <li>第1组<span></span></li>
                         <li>第2组<span>Ctrl+2</span></li>
@@ -348,7 +351,7 @@
                 <li>继续<span>F5</span></li>
                 <hr>
                 <li>切换断点<span>F9</span></li>
-                <li>新建断点<span class="c">></span></li>
+                <li>新建断点</li>
                 <hr>
                 <li>启用所有断点</li>
                 <li>禁用所有断点</li>

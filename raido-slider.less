@@ -1,0 +1,43 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+div{
+  position: relative;
+  width: 1280px;
+  height: 853px;
+  border: 1px solid #000;
+  margin: auto;
+  font-size: 0;
+  overflow: hidden;
+  img{
+    position: absolute;
+    left: 1280px;
+    transition: 2s;
+  }
+  input{
+    display: none;
+    &:checked+img{
+      transition: 2s;
+      left: 0;
+      +label{
+        background-color: red;
+      }
+    }
+  }
+  p{
+    position: absolute;
+    top: 800px;
+    left: 20px;
+    label{
+      display: inline-block;
+      width: 20px;
+      height: 20px;
+      border: 1px solid #000;
+      margin-right: 20px;
+    }
+  }
+
+}

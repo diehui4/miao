@@ -1,0 +1,37 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.w1{
+  width: 100px;
+  height: 50px;
+  border: 2px solid rgb(195,195,195);
+  border-radius: 30px;
+  padding: 3px;
+
+}
+#circle{
+  display: none;
+  &:checked+.w2{
+    transition: width 1s,left 1s 0.2s;
+    left: 52px;
+    width: 45px;
+    +.w1{
+      background-color: rgba(48,243,77,1) ;
+    }
+  }
+}
+.w2{
+  position: absolute;
+  background-color: white;
+  top: 5px;
+  left: 4px;
+  width: 40px;
+  height: 40px;
+  display: inline-block;
+  border: 1px solid rgba(195,195,195,0.7);
+  border-radius: 20px;
+  z-index: 10;
+  transition: left 1s;
+  }
