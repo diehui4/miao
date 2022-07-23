@@ -6,72 +6,60 @@
 body,
 html {
   height: 100%;
-  width: 100%;
 }
 .wrap {
   display: flex;
+  height: 100%;
+}
+.wrap div {
+  width: 200px;
+  flex: none;
+  background-color: pink;
+  display: flex;
+  flex-direction: column;
   border: 1px solid #000;
-  height: 100%;
-  width: 100%;
-  min-width: 920px;
 }
-.wrap div:nth-child(1) {
-  height: 100%;
+.wrap div h2 {
+  line-height: 70px;
+  padding-left: 25px;
 }
-.wrap div:nth-child(1) h2 {
-  padding-left: 30px;
-  padding-top: 25px;
-  margin-bottom: 30px;
-}
-.wrap div:nth-child(1) input {
+.wrap div input {
   width: 158px;
   height: 30px;
   margin-left: 5px;
 }
-.wrap div:nth-child(1) button {
+.wrap div button {
   width: 35px;
   height: 25px;
   vertical-align: middle;
 }
-.wrap div:nth-child(1) ul {
+.wrap div ul {
+  list-style: none;
   margin-top: 30px;
   margin-left: 40px;
-  list-style: none;
-  overflow-y: scroll;
-  height: calc(100% - 146px);
-  flex-shrink: 0;
+  overflow: auto;
 }
-.wrap div:nth-child(1) ul a {
+.wrap div ul a {
   text-decoration: none;
 }
-.wrap div:nth-child(2) {
-  flex-wrap: wrap;
+.wrap section {
   min-width: 320px;
-  background-color: #fff7d7;
-  height: 100%;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #000;
 }
-.wrap div:nth-child(2) h2 {
-  border-bottom: 1px solid #000;
-  height: 70px;
+.wrap section h2 {
   line-height: 70px;
   padding-left: 25px;
+  border-bottom: 1px solid #000;
 }
-.wrap div:nth-child(2) div {
-  height: calc(100% - 70px);
-  overflow-y: scroll;
+.wrap section main {
+  overflow: auto;
 }
-.wrap div:nth-child(1),
-.wrap div:nth-child(3),
-.wrap div:nth-child(4) {
-  background-color: pink;
-  height: 100%;
-  border: 1px solid #000;
-  width: 200px;
-  flex-shrink: 0;
+.wrap div:nth-last-child(2) {
+  padding-left: 30px;
 }
-.wrap div:nth-child(3) {
-  padding: 30px 0 0 50px;
-}
-.wrap div:nth-child(4) {
-  padding: 30px 0 0 100px;
+.wrap div:last-child {
+  padding-left: 50px;
 }

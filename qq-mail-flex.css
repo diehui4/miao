@@ -5,34 +5,35 @@
 }
 body,
 html {
-  width: 100%;
   height: 100%;
 }
 .wrap {
   display: flex;
-  flex-wrap: wrap;
-  width: 100%;
   height: 100%;
+  flex-direction: column;
 }
 .wrap .top {
-  width: 100%;
   height: 100px;
-  background-color: #5f9ea0;
+  background-color: green;
+  flex: none;
 }
-.wrap .left {
+.wrap .wrap1 {
+  display: flex;
+  flex: 1;
+  overflow: auto;
+}
+.wrap .wrap1 .left {
   width: 200px;
-  height: calc(100% - 100px);
-  background-color: #a0522d;
+  flex: none;
   overflow-y: scroll;
-}
-.wrap .left ul {
-  list-style-type: disc;
-  padding-left: 30px;
-}
-.wrap .right {
-  flex-grow: 1;
   background-color: red;
-  width: calc(100% - 200px);
-  height: calc(100% - 100px);
+}
+.wrap .wrap1 .left ul {
+  list-style-type: disc;
+  margin-left: 30px;
+}
+.wrap .wrap1 .right {
+  flex: 1;
+  background-color: pink;
   overflow-y: auto;
 }
