@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .one {
+            width: 150px;
+            height: 150px;
+        }
+        
+        .one span {
+            box-sizing: border-box;
+            float: left;
+            border: 5px solid blue;
+            width: 50px;
+            height: 50px;
+            margin: 0 -5px -5px 0;
+            text-align: center;
+            line-height: 50px;
+        }
+        
+        .one span:hover {
+            border: 5px solid red;
+            position: relative;
+        }
+        
+        .two {
+            width: 150px;
+            height: 150px;
+            box-sizing: border-box;
+            font-size: 0;
+        }
+        
+        .two span {
+            box-sizing: border-box;
+            display: inline-block;
+            width: 50px;
+            height: 50px;
+            border: 5px solid blue;
+            margin: 0 -5px -5px 0;
+            font-size: 16px;
+            text-align: center;
+            line-height: 50px;
+        }
+        
+        .two span:hover {
+            border: 5px solid red;
+            position: relative;
+        }
+        
+        h2 {
+            margin: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>float</h2>
+    <div class="one">
+        <span>1</span>
+        <span>2</span>
+        <span>3</span>
+        <span>4</span>
+        <span>5</span>
+        <span>6</span>
+        <span>7</span>
+        <span>8</span>
+        <span>9</span>
+    </div>
+    <h2>inline-block</h2>
+    <div class="two">
+        <span>1</span>
+        <span>2</span>
+        <span>3</span>
+        <span>4</span>
+        <span>5</span>
+        <span>6</span>
+        <span>7</span>
+        <span>8</span>
+        <span>9</span>
+    </div>
+</body>
+
+</html>

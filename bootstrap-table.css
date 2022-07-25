@@ -58,3 +58,6 @@ html {
 .table-dark tbody tr {
   border-bottom: 1px solid #373b3e;
 }
+.table-dark.table-hover tbody tr:hover {
+  background-color: pink;
+}
