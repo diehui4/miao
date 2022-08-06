@@ -79,6 +79,26 @@
             font-size: 50px;
             transition: background-color 0.2s, font-size 3s;
         }
+        
+        table {
+            border-collapse: collapse;
+        }
+        
+        col,
+        tr {
+            border: 5px solid blue;
+        }
+        
+        table td {
+            box-sizing: border-box;
+            width: 45px;
+            height: 45px;
+            text-align: center;
+        }
+        
+        table td:hover {
+            border: 5px solid red;
+        }
     </style>
 </head>
 
@@ -107,6 +127,27 @@
         <span>8</span>
         <span>9</span>
     </div>
+    <h2>Table</h2>
+    <table>
+        <col>
+        <col>
+        <col>
+        <tr>
+            <td>1</td>
+            <td>2</td>
+            <td>3</td>
+        </tr>
+        <tr>
+            <td>4</td>
+            <td>5</td>
+            <td>6</td>
+        </tr>
+        <tr>
+            <td>7</td>
+            <td>8</td>
+            <td>9</td>
+        </tr>
+    </table>
     <div class="three">订阅博客</div>
 </body>
 

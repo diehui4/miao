@@ -1,0 +1,42 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+div {
+  width: 200px;
+  height: 200px;
+  border: 1px solid #000;
+}
+.wayone {
+  line-height: 200px;
+  text-align: center;
+  background-color: gray;
+}
+.waytwo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: gray;
+}
+.waythree {
+  position: relative;
+  background-color: gray;
+}
+.waythree div {
+  width: 100px;
+  height: 100px;
+  background-color: green;
+  position: absolute;
+  top: calc(50% - 50px);
+  left: calc(50% - 50px);
+}
+.wayfour {
+  background-color: grey;
+}
+.wayfour div {
+  width: 100px;
+  height: 100px;
+  background-color: green;
+  transform: translate(50px, 50px);
+}

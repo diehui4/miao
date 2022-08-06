@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .earth {
+            width: 200px;
+            height: 200px;
+            border: 1px solid #000;
+            border-radius: 50%;
+            transition: 999s;
+        }
+        
+        .smile {
+            width: 50px;
+            height: 50px;
+            border: 1px solid #000;
+            border-radius: 50%;
+            transition: 999s;
+        }
+        
+        .smile div:nth-child(1) {
+            transform: translate(10px, 5px);
+        }
+        
+        .smile div:nth-child(2) {
+            transform: translate(28px, -16px);
+        }
+        
+        .smile div:nth-child(3) {
+            transform: translate(19px, -15px) scaleY(-1);
+        }
+        
+        .earth:hover {
+            transform: rotate(3600deg);
+            transition: 30s;
+        }
+        
+        .earth:hover .smile {
+            transform: rotate(-3600deg);
+            transition: 30s;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="earth">
+        <div class="smile">
+            <div>^</div>
+            <div>^</div>
+            <div>^</div>
+        </div>
+    </div>
+</body>
+
+</html>

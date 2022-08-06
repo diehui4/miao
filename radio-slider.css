@@ -24,12 +24,11 @@ div input:checked + img {
   transition: 2s;
   left: 0;
 }
-div p {
-  position: absolute;
-  top: 800px;
-  left: 20px;
+div input:checked + img label {
+  background-color: red;
 }
-div p label {
+div label {
+  position: relative;
   display: inline-block;
   width: 20px;
   height: 20px;
