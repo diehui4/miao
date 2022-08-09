@@ -1,0 +1,202 @@
+
+
+<script type="x" id="ch0103/01">
+  var a = +prompt()
+  var b = +prompt()
+  var c = a + b
+  console.log(c);
+</script>
+
+<script type="x" id="ch0103/02">
+  var a = +prompt()
+  var b = +prompt()
+  var c = +prompt()
+  console.log((a + b) * c);
+</script>
+
+<script type="x" id="ch0103/03">
+  var a = +prompt()
+  var b = +prompt()
+  var c = +prompt()
+  var d = (a + b) / c
+  console.log(parseInt(d));
+</script>
+
+<script type="x" id="ch0103/04">
+  var a = +prompt()
+  var b = +prompt()
+  console.log(parseInt(a / b));
+  console.log(a % b);
+</script>
+
+<script type="x" id="ch0103/05">
+  var a = +prompt()
+  var b = +prompt()
+  console.log((a/b).toFixed(9));
+</script>
+
+<script type="x" id="ch0103/06">
+ var a = +prompt()
+ var b = +prompt()
+console.log((b/a*100).toFixed(3) +"%");
+</script>
+
+<script type="x" id="ch0103/07">
+ var x = +prompt()
+ var a = +prompt()
+ var b = +prompt()
+ var c = +prompt()
+ var d = +prompt()
+ var e = a*Math.pow(x,3)+b*Math.pow(x,2)+c*x+d
+console.log(e.toFixed(7));
+</script>
+
+<script type="x" id="ch0103/08">
+  var f = +prompt()
+  var c = 5 * (f - 32) / 9
+  console.log(c.toFixed(5));
+</script>
+
+<script type="x" id="ch0103/09">
+ var r = +prompt()
+ var pi = 3.14159
+ var d = r * 2
+ var a = 2 * pi * r
+ var b = r * r * pi
+ console.log(d.toFixed(4),a.toFixed(4),b.toFixed(4));
+</script>
+
+<script type="x" id="ch0103/10">
+  var r1 = +prompt()
+  var r2 = +prompt()
+  var r = 1/(1/r1+1/r2)
+  console.log(r.toFixed(2));
+</script>
+
+<script type="x" id="ch0103/11">
+var a = +prompt()
+var b = +prompt()
+console.log((a%b).toFixed(4));
+</script>
+
+<script type="x" id="ch0103/12">
+  var r = +prompt()
+  var pi = 3.14
+  var v = 4/3*pi*Math.pow(r,3)
+  console.log(v.toFixed(2));
+</script>
+
+<script type="x" id="ch0103/13">
+  var a = +prompt()
+  var b = a % 10+""
+  var c = (a - b)/10%10+""
+  var d = (a - a % 100)/100+""
+  console.log(b+c+d);
+</script>
+
+<script type="x" id="ch0103/14">
+var h = +prompt()
+var r = +prompt()
+var water = h*r*r*Math.PI/1000
+console.log( 20 % water == 0 ? 20/water:parseInt(20/water)+1);
+</script>
+
+<script type="x" id="ch0103/15">
+var n = +prompt()
+var x = +prompt()
+var y = +prompt()
+console.log(y % x == 0 ? n-y/x : n- parseInt(y/x+1));
+</script>
+
+<script type="x" id="ch0103/16">
+var xa = +prompt()
+var ya = +prompt()
+var xb = +prompt()
+var yb = +prompt()
+console.log(Math.sqrt(Math.pow(yb-ya,2)+Math.pow(xb-xa,2)).toFixed(3));
+</script>
+
+<script type="x" id="ch0103/17">
+  var x1 = +prompt()
+  var y1 = +prompt()
+  var x2 = +prompt()
+  var y2 = +prompt()
+  var x3 = +prompt()
+  var y3 = +prompt()
+  var xmax = Math.max(Math.abs(x1),Math.abs(x2),Math.abs(x3))
+  var xmin = Math.min(Math.abs(x1),Math.abs(x2),Math.abs(x3))
+  var ymax = Math.max(Math.abs(y1),Math.abs(y2),Math.abs(y3))
+  var ymin = Math.min(Math.abs(y1),Math.abs(y2),Math.abs(y3))
+  console.log(((xmax-xmin)*(ymax-ymin)-Math.abs(y1-y2)*Math.abs(x1-x2)/2-Math.abs(y1-y3)*Math.abs(x1-x3)/2-Math.abs(y2-y3)*Math.abs(x2-x3)/2).toFixed(2));
+</script>
+
+<script type="x" id="ch0103/18">
+var a = +prompt()
+var b = +prompt()
+var c = +prompt()
+console.log(a+(b-a)*(c-1));
+</script>
+
+<script type="x" id="ch0103/19">
+  var a = +prompt()
+  var b = +prompt()
+  console.log(a*b);
+</script>
+
+<script type="x" id="ch0103/20">
+var n = +prompt()
+console.log(Math.pow(2,n));
+</script>
+
+<script type="x" id="ch0104/01">
+  var n = +prompt()
+  console.log(n>0? 'positive' : n == 0? 'zero' : 'negative');
+</script>
+
+<script type="x" id="ch0104/02">
+  var a = +prompt()
+  console.log(Math.abs(a).toFixed(2));
+</script>
+
+<script type="x" id="ch0104/03">
+var a = +prompt()
+console.log(a % 2 == 0 ? 'even' : 'odd');
+</script>
+
+<script type="x" id="ch0104/04">
+  var a = +prompt()
+  console.log((a+"").charCodeAt() % 2 == 0 ? 'YES' : 'NO');
+</script>
+
+<script type="x" id="ch0104/05">
+  var a = +prompt()
+  var b = +prompt()
+  console.log(a>b ? '>' : a=b? '=' : '<');
+</script>
+
+<script type="x" id="ch0104/06">
+  var a = +prompt()
+  console.log(a == (a%100)? 1:0);
+</script>
+
+<script type="x" id="ch0104/07">
+  var a = +prompt()
+  var b = +prompt()
+  console.log(parseInt(a/10)+parseInt(b/20) >= 1 ? 1 : 0);
+</script>
+
+<script type="" id="ch0104/08">
+  var a = +prompt()
+  console.log(a % 3 == 0 && a % 5 == 0 ? 'YES' : 'NO');
+</script>
+
+<script type="" id="ch0104/09">
+  var a = +prompt()
+  console.log(a%3==0&&a%5==0&&a%7==0?3+' '+5+' '+7:a%3==0&&a%5==0&&a%7!==0?3+' '+7:a%3==0&&a%7==0&&a%5!==0?3+' '+7:a%3!==0&&a%5==0&&a%7==0?5+' '+7:a%3==0&&a%5!==0&&a%7!==0?3:a%3!==0&&a%5==0&&a%7!==0?5:a%3!==0&&a%5!==0&&a%7==0?7:'n');
+</script>
+
+<script type="" id="ch0104/10">
+  var a = +prompt()
+  var b = +prompt()
+  console.log(a<60||b<60?1:0);
+</script>
