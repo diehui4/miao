@@ -63,22 +63,83 @@
 // 在 坐标 (42, 42) 画出一个点
 dot(42,42,'red')
 // 画一条实线
-for(var x = 20;x<=100;x++){
-  dot(x,20,'blue')
+for(var x = 0;x<=100;x++){
+  dot(x+20,20,'blue')
 }
 // 画一条一个实点一个空点的虚线
-for(var x = 20;x<=100;x+=2){
-dot(x,30,'black')
+for(var x = 0;x<=100;x+=2){
+dot(x+20,30,'black')
 }
 // 画一条两个实点两个空点的虚线
+for(var x = 0;x<=100;x++){
+  if(x%4<2){
+    dot(x+20,40,'red')
+  }
+}
 // 画一条三个实点两个空点的虚线
+for(var x = 0 ; x<=100;x++){
+  if(x%5<3){
+    dot(x+20,50,'green')
+  }
+}
 // 画一条45度的斜线
+for(var x = 0;x<=100;x++){
+  var y = x
+  dot(x,y,'red')
+}
 // 画一条30度的斜线（与x轴或y轴的夹角呈30度）
+for(var x = 0 ; x<=100;x++){
+  var y = x * Math.sqrt(3)/3
+  dot(x,y,'blue')
+}
 // 画一条跨越画布左上角和右下角的对角线
+for(var x = 0 ; x<=500;x++){
+  var y = 0.8 * x
+  dot(x,y,'green')
+}
 // 画一个空心矩形
+for(var y = 0 ; y <=50;y++){
+  for(var x = 0 ; x<=50;x++){
+    if(x==0||x==50||y==0||y==50){
+      dot(x+150,y+20,'black')
+    }else{
+      dot(x+150,y+20,'white')
+    }
+  }
+}
 // 画一个实心矩形
-// 画两个个空心的圆，居中：
-// * 一个半径为50像素
+for(var y = 0 ; y <=100;y++){
+  for(var x = 0 ; x<=100;x++){
+    var color = 'rgb('+x*2.55+','+y*2.55+','+'255)'
+    var xx = x
+    var yy = y+0.27*x
+      dot(xx+220,yy+50,color)
+  }
+}
+for(var y = 0 ; y <=100;y++){
+  for(var x = 0 ; x<=100;x++){
+    var color = 'rgb('+x*2.55+','+y*2.55+','+'255)'
+    var xx = x
+    var yy = y
+      dot(xx+320,yy+70,color)
+  }
+}
+for(var y = 0 ; y <=100;y+=0.1){
+  for(var x = 0 ; x<=100;x+=0.1){
+    var color = 'rgb('+x*2.55+','+y*2.55+','+'255)'
+    var xx = x*0.5-y*0.87
+    var yy = x*0.87+y*0.5
+      dot(xx+300,yy+200,color)
+  }
+}
+//    2 0
+//    0 2
+//    ------
+//    1  0.27
+//    0  1
+//    ------
+//    0.5    0.87
+//    -0.87  0.5
 for(var x = 50 ; x>=0;x=x-0.01){
 var y = Math.sqrt(2500-x*x)
   dot(x+200,y+200,'black')
@@ -95,20 +156,24 @@ var y = Math.sqrt(40000-x*x)
   dot(-x+200,-y+200,'black')
 }
 // 画一个实心的圆，半径至少为100像素
-console.time('aa');
+
 for(var j = 100 ; j>=0;j--){
   for(var x = 100 ; x>=0; x=x - 0.01){
   var color = 'rgb('+j+','+x+','+j+')'
   var y = Math.sqrt(j*j-x*x)
-  dot(x+200,y+200,color)
-  dot(-x+200,y+200,color)
-  dot(x+200,-y+200,color)
-  dot(-x+200,-y+200,color)
-  dot(200,200,color)
+  dot(x+100,y+250,color)
+  dot(-x+100,y+250,color)
+  dot(x+100,-y+250,color)
+  dot(-x+100,-y+250,color)
+  dot(100,250,color)
 }
 }
-console.timeEnd('aa');
+
 // 画一个【大小合适】的sin(x)的图像
+for(var x = 0 ; x<=100 ;x+=0.1){
+  var y = 10*Math.sin(x+Math.PI/2)
+  dot(x+20,y+70,'red')
+}
 // 画出rgb色彩空间的某一面（尺寸要大于100x100）
 //  'rgb(255,255,0)'
 //  '#ff00ff'
@@ -122,11 +187,5 @@ console.timeEnd('aa');
 //    ------
 //    0.5    0.87
 //    -0.87  0.5
-let a = 10
-var b = function(){
-  console.log(a);
-   let a = 0
-  console.log(a);
-}
 </script>
 </html>
