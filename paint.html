@@ -140,38 +140,52 @@ for(var y = 0 ; y <=100;y+=0.1){
 //    ------
 //    0.5    0.87
 //    -0.87  0.5
-for(var x = 50 ; x>=0;x=x-0.01){
-var y = Math.sqrt(2500-x*x)
+// for(var x = 50 ; x>=0;x=x-0.01){
+// var y = Math.sqrt(2500-x*x)
+//   dot(x+200,y+200,'black')
+//   dot(-x+200,y+200,'black')
+//   dot(x+200,-y+200,'black')
+//   dot(-x+200,-y+200,'black')
+// }
+var circle = function(r){
+  var x = 0
+  var y = r
+  while(x<=y){
+  var d1 = x*x+y*y
+  var d2 = x*x+(y-1)*(y-1)
+  if(Math.abs(d1-r*r)>Math.abs(d2-r*r)){
+    y--
+  }
   dot(x+200,y+200,'black')
-  dot(-x+200,y+200,'black')
   dot(x+200,-y+200,'black')
+  dot(-x+200,y+200,'black')
   dot(-x+200,-y+200,'black')
+  dot(y+200,x+200,'black')
+  dot(-y+200,x+200,'black')
+  dot(y+200,-x+200,'black')
+  dot(-y+200,-x+200,'black')
+  x++
+  }
 }
+circle(50)
 // * 一个半径为200像素
-for(var x = 200 ; x>=0;x=x-0.01){
-var y = Math.sqrt(40000-x*x)
-  dot(x+200,y+200,'black')
-  dot(-x+200,y+200,'black')
-  dot(x+200,-y+200,'black')
-  dot(-x+200,-y+200,'black')
-}
+circle(200)
 // 画一个实心的圆，半径至少为100像素
-
 for(var j = 100 ; j>=0;j--){
   for(var x = 100 ; x>=0; x=x - 0.01){
   var color = 'rgb('+j+','+x+','+j+')'
   var y = Math.sqrt(j*j-x*x)
-  dot(x+100,y+250,color)
-  dot(-x+100,y+250,color)
-  dot(x+100,-y+250,color)
-  dot(-x+100,-y+250,color)
-  dot(100,250,color)
+  dot(x+150,y+150,color)
+  dot(-x+150,y+150,color)
+  dot(x+150,-y+150,color)
+  dot(-x+150,-y+150,color)
+  dot(150,150,color)
 }
 }
 
 // 画一个【大小合适】的sin(x)的图像
 for(var x = 0 ; x<=100 ;x+=0.1){
-  var y = 10*Math.sin(x+Math.PI/2)
+  var y = 10*Math.sin(x/10)
   dot(x+20,y+70,'red')
 }
 // 画出rgb色彩空间的某一面（尺寸要大于100x100）
