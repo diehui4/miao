@@ -1341,18 +1341,19 @@ for(var i = 1 ; i < m ; i++){
 console.log(max,min);
 </script>
 
-<script type="" id="sqrt">
-  debugger
+<script type="xx" id="sqrt">
   var n = +prompt()
-  var a = n/2
+  var middle = 0
+  var max = n
+  var min = 0
   for(var i = 0 ; ; i++){
-    if(a*a<n){
-      a = (n+a)/2
-    }else if(a*a>n){
-      a = (3*a-n)/2
-    }
-    if (a.toFixed(3) == Math.sqrt(n).toFixed(3)){
-      console.log(a.toFixed(3));
+    middle = (max + min) /2
+    if(middle<Math.sqrt(n)){
+      min = middle
+    }else if(middle>Math.sqrt(n)){
+      max = middle
+    }else if (middle.toFixed(3) == Math.sqrt(n).toFixed(3)){
+      console.log(middle.toFixed(3));
       break
     }
   }
