@@ -57,10 +57,29 @@ var diehui4 = {
   },
   drop: function (array, n = 1) {
     var result = []
-    for (i = n; i < array.length; i++) {
+    for (var i = n; i < array.length; i++) {
       result.push(array[i])
     }
     return result
   },
-
+  dropRight: function (array, n = 1) {
+    var result = []
+    for (var i = 0; i < array.length - n; i++) {
+      result.push(array[i])
+    }
+    return result
+  },
+  fill: function (array, value, start = 0, end = array.length) {
+    for (var i = 0; i < end; i++) {
+      array[i] = value
+    }
+    return array
+  },
+  findIndex: function (array, predicate, fromIndex = 0) {
+    for (var i = fromIndex; i < array.length; i++) {
+      if (predicate(array[i])) {
+        return i
+      }
+    }
+  }
 }
