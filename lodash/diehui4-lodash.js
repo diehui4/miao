@@ -39,16 +39,18 @@ var diehui4 = {
     return result
   },
   difference: function () {
-    var result = arguments[0]
-    for (var i = 0; i < array.length; i++) {
-      var istrue = true
-      for (var j = 0; j < values.length; j++) {
-        if (array[i] == values[j]) {
-          istrue = false
+    var result = []
+    var map = {}
+    for (var i = 1; i < arguments.length; i++) {
+      for (var j = 0; j < arguments[i].length; j++) {
+        if (!(arguments[i][j] in map)) {
+          map[arguments[i][j]] = arguments[i][j]
         }
       }
-      if (istrue) {
-        result.push(array[i])
+    }
+    for (var i = 0; i < arguments[0].length; i++) {
+      if (!(arguments[0][i] in map)) {
+        result.push(arguments[0][i])
       }
     }
     return result
