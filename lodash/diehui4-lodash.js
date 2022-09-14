@@ -54,5 +54,12 @@ var diehui4 = {
       }
     }
     return result
+  },
+  drop: function (array, n = 1) {
+    var result = []
+    for (i = n; i < array.length; i++) {
+      result.push(array[i])
+    }
+    return result
   }
 }
