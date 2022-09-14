@@ -38,8 +38,8 @@ var diehui4 = {
     }
     return result
   },
-  difference: function (array, values) {
-    var result = []
+  difference: function () {
+    var result = arguments[0]
     for (var i = 0; i < array.length; i++) {
       var istrue = true
       for (var j = 0; j < values.length; j++) {
