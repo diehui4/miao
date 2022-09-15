@@ -86,10 +86,19 @@ var diehui4 = {
     if (typeof (predicate) === 'object') {
       for (var i = fromIndex; i < array.length; i++) {
         var map = array[i]
+        var istrue = true
         for (var k in map) {
-          if (k in predicate && map[k] == predicate[k]) {
-            return i
+          if (map[k] != predicate[k]) {
+            istrue = false
           }
+        }
+        for (var k in predicate) {
+          if (map[k] != predicate[k]) {
+            istrue = false
+          }
+        }
+        if (istrue) {
+          return i
         }
       }
     }
@@ -143,4 +152,43 @@ var diehui4 = {
     }
     return -1
   },
+  flatten: function (array) {
+    var result = []
+    for (var i = 0; i < array.length; i++) {
+      if (Array.isArray(array[i])) {
+        for (var j = 0; j < array[i].length; j++) {
+          result.push(array[i][j])
+        }
+      } else {
+        result.push(array[i])
+      }
+    }
+    return result
+  },
+  flattenDeep: function (array) {
+    var result = []
+    function flattenDeep(array) {
+      for (var i = 0; i < array.length; i++) {
+        if (Array.isArray(array[i])) {
+          flattenDeep(array[i])
+        } else {
+          result.push(array[i])
+        }
+      }
+    }
+    flattenDeep(array)
+    return result
+  },
+  flattenDeepth: function flattenDeepth(array, depth = 1) {
+    var result = []
+    for (var i = 0; i < array.length; i++) {
+      if (Array.isArray(array[i]) && depth > 0) {
+        result = result.concat(flattenDeepth(array[i], depth - 1))
+      } else {
+        result.push(array[i])
+      }
+    }
+    return result
+  },
+
 }
