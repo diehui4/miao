@@ -76,10 +76,37 @@ var diehui4 = {
     return array
   },
   findIndex: function (array, predicate, fromIndex = 0) {
-    for (var i = fromIndex; i < array.length; i++) {
-      if (predicate(array[i])) {
-        return i
+    if (typeof (predicate) === 'function') {
+      for (var i = fromIndex; i < array.length; i++) {
+        if (predicate(array[i])) {
+          return i
+        }
       }
     }
+    if (typeof (predicate) === 'object') {
+      for (var i = fromIndex; i < array.length; i++) {
+        var map = array[i]
+        for (var k in map) {
+          if (k in predicate && map[k] == predicate[k]) {
+            return i
+          }
+        }
+      }
+    }
+    if (Array.isArray(predicate)) {
+      for (var i = fromIndex; i < array.length; i++) {
+        if (predicate[0] in array[i] && predicate[1] == array[i].predicate[0]) {
+          return i
+        }
+      }
+    }
+    if (typeof (predicate) === 'string') {
+      for (var i = fromIndex; i < array.length; i++) {
+        if (array[i].predicate) {
+          return i
+        }
+      }
+    }
+    return -1
   }
 }
