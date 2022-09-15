@@ -179,11 +179,11 @@ var diehui4 = {
     flattenDeep(array)
     return result
   },
-  flattenDeepth: function flattenDeepth(array, depth = 1) {
+  flattenDepth: function flattenDepth(array, depth = 1) {
     var result = []
     for (var i = 0; i < array.length; i++) {
       if (Array.isArray(array[i]) && depth > 0) {
-        result = result.concat(flattenDeepth(array[i], depth - 1))
+        result = result.concat(flattenDepth(array[i], depth - 1))
       } else {
         result.push(array[i])
       }
