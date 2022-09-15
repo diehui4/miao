@@ -190,5 +190,51 @@ var diehui4 = {
     }
     return result
   },
+  fromPairs: function (array) {
+    var map = {}
+    for (var i = 0; i < array.length; i++) {
+      map[array[i][0]] = array[i][1]
+    }
+    return map
+  },
+  head: function (array) {
+    return array[0]
+  },
+  indexOf: function (array, value, fromIndex = 0) {
+    for (var i = fromIndex; i < array.length; i++) {
+      if (array[i] == value) {
+        return i
+      }
+    }
+    return -1
+  },
+  initial: function (array) {
+    return array.slice(0, array.length - 1)
+  },
+  intersection: function () {
+    var map = {}
+    let ary = []
+    if (arguments.length == 1) {
+      return arguments[0]
+    }
+    if (arguments.length == 0) {
+      return ary
+    }
+    for (var i = 0; i < arguments.length; i++) {
+      for (var j = 0; j < arguments[i].length; j++) {
+        if (!(arguments[i][j] in map)) {
+          map[arguments[i][j]] = 1
+        } else if (arguments[i].indexOf(arguments[i][j]) == j) {
+          map[arguments[i][j]]++
+        }
+      }
+    }
+    for (var k in map) {
+      if (map[k] == arguments.length) {
+        ary.push(Number(k))
+      }
+    }
+    return ary
+  },
 
 }
