@@ -236,5 +236,44 @@ var diehui4 = {
     }
     return ary
   },
-
+  lastIndexOf: function (array, value, fromIndex = array.length - 1) {
+    for (var i = fromIndex; i >= 0; i--) {
+      if (array[i] == value) {
+        return i
+      }
+    }
+    return -1
+  },
+  join: function (array, separator = ',') {
+    let str = ''
+    for (let i = 0; i < array.length; i++) {
+      if (i != array.length - 1) {
+        str += array[i] + separator
+      } else {
+        str += array[i]
+      }
+    }
+    return str
+  },
+  last: function (array) {
+    return array[array.length - 1]
+  },
+  pull: function () {
+    var ary = arguments[0]
+    var map = {}
+    for (var i = 1; i < arguments.length; i++) {
+      map[arguments[i]] = 0
+    }
+    for (let i = 0, j = ary.length - 1; i <= j;) {
+      if (ary[i] in map) {
+        let temp = ary[i]
+        ary[i] = ary[j]
+        ary[j] = temp
+        ary.pop()
+      } else {
+        i++
+      }
+    }
+    return ary
+  }
 }
