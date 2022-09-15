@@ -70,7 +70,7 @@ var diehui4 = {
     return result
   },
   fill: function (array, value, start = 0, end = array.length) {
-    for (var i = 0; i < end; i++) {
+    for (var i = start; i < end; i++) {
       array[i] = value
     }
     return array
