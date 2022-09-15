@@ -95,18 +95,52 @@ var diehui4 = {
     }
     if (Array.isArray(predicate)) {
       for (var i = fromIndex; i < array.length; i++) {
-        if (predicate[0] in array[i] && predicate[1] == array[i].predicate[0]) {
+        if (predicate[0] in array[i] && predicate[1] == array[i][predicate[0]]) {
           return i
         }
       }
     }
     if (typeof (predicate) === 'string') {
       for (var i = fromIndex; i < array.length; i++) {
-        if (array[i].predicate) {
+        if (array[i][predicate]) {
           return i
         }
       }
     }
     return -1
-  }
+  },
+  findLastIndex: function (array, predicate, fromIndex = array.length - 1) {
+    if (typeof (predicate) === 'function') {
+      for (var i = fromIndex; i >= 0; i--) {
+        if (predicate(array[i])) {
+          return i
+        }
+      }
+    }
+    if (typeof (predicate) === 'object') {
+      for (var i = fromIndex; i >= 0; i--) {
+        var map = array[i]
+        for (var k in map) {
+          if (k in predicate && map[k] == predicate[k]) {
+            return i
+          }
+        }
+      }
+    }
+    if (Array.isArray(predicate)) {
+      for (var i = fromIndex; i >= 0; i--) {
+        if (predicate[0] in array[i] && predicate[1] == array[i][predicate[0]]) {
+          return i
+        }
+      }
+    }
+    if (typeof (predicate) === 'string') {
+      for (var i = fromIndex; i >= 0; i--) {
+        if (array[i][predicate]) {
+          return i
+        }
+      }
+    }
+    return -1
+  },
 }
