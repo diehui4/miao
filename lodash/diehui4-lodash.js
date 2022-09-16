@@ -282,5 +282,5 @@ var diehui4 = {
       count--
     }
     return ary
-  }
+  },
 }
