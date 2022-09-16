@@ -246,6 +246,7 @@ var diehui4 = {
   },
   join: function (array, separator = ',') {
     let str = ''
+    let separator = separator + ''
     for (let i = 0; i < array.length; i++) {
       if (i != array.length - 1) {
         str += array[i] + separator
@@ -264,15 +265,21 @@ var diehui4 = {
     for (var i = 1; i < arguments.length; i++) {
       map[arguments[i]] = 0
     }
+    let count = 0
     for (let i = 0, j = ary.length - 1; i <= j;) {
       if (ary[i] in map) {
         let temp = ary[i]
         ary[i] = ary[j]
         ary[j] = temp
-        ary.pop()
+        j--
+        count++
       } else {
         i++
       }
+    }
+    while (count) {
+      ary.pop()
+      count--
     }
     return ary
   }
