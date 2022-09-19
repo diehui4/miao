@@ -284,7 +284,7 @@ var diehui4 = {
   },
   pullAll: function (array, values) {
     var map = {}
-    for (var i = 1; i < values.length; i++) {
+    for (var i = 0; i < values.length; i++) {
       map[values[i]] = 0
     }
     let count = 0
@@ -305,4 +305,14 @@ var diehui4 = {
     }
     return array
   },
+  reverse: function (ary) {
+    if (ary.length < 2) {
+      return ary
+    }
+    for (let i = 0, j = ary.length - 1; i < j; i++, j--) {
+      [ary[i], ary[j]] = [ary[j], ary[i]]
+    }
+    return ary
+  },
+
 }
