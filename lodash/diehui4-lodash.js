@@ -244,12 +244,12 @@ var diehui4 = {
     }
     return -1
   },
-  join: function (array, separator = ',') {
+  join: function (array, sep = ',') {
     let str = ''
-    let separator = separator + ''
+    let sep = sep + ''
     for (let i = 0; i < array.length; i++) {
       if (i != array.length - 1) {
-        str += array[i] + separator
+        str += array[i] + sep
       } else {
         str += array[i]
       }
