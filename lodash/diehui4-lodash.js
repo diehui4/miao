@@ -283,4 +283,27 @@ var diehui4 = {
     }
     return ary
   },
+  pullAll: function (array, values) {
+    var map = {}
+    for (var i = 1; i < values.length; i++) {
+      map[values[i]] = 0
+    }
+    let count = 0
+    for (let i = 0, j = array.length - 1; i <= j;) {
+      if (array[i] in map) {
+        let temp = array[i]
+        array[i] = array[j]
+        array[j] = temp
+        j--
+        count++
+      } else {
+        i++
+      }
+    }
+    while (count) {
+      array.pop()
+      count--
+    }
+    return array
+  },
 }
