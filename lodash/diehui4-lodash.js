@@ -246,10 +246,9 @@ var diehui4 = {
   },
   join: function (array, separator = ',') {
     let str = ''
-    let sep = separator + ''
     for (let i = 0; i < array.length; i++) {
       if (i != array.length - 1) {
-        str += array[i] + sep
+        str += '' + array[i] + separator
       } else {
         str += array[i]
       }
