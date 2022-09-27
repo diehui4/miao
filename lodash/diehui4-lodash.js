@@ -315,7 +315,7 @@ var diehui4 = {
     return ary
   },
   every(collection, action) {
-    if (typeof (action) === 'boolean') {
+    if (action === Boolean) {
       for (let k of collection) {
         if (!k) {
           return false
@@ -348,7 +348,7 @@ var diehui4 = {
     return true
   },
   some(collection, action) {
-    if (typeof (action) === 'boolean') {
+    if (action === Boolean) {
       for (let k of collection) {
         if (k) {
           return true
@@ -385,15 +385,26 @@ var diehui4 = {
     return false
   },
   countBy(collection, action) {
+    let obj = {}
     if (typeof (action) === 'function') {
-      let obj = {}
       collection.forEach(element => {
-        if (!(action(element) in obj)) {
-          obj[action(element)] = 1
+        if (!(action(a) in obj)) {
+          obj[action(a)] = 1
         } else {
-          obj[action(element)]++
+          obj[action(a)]++
         }
       });
+      return obj
+    }
+    if (typeof (action) === 'string') {
+      collection.forEach(it => {
+        if (!(it[action] in obj)) {
+          obj[it[action]] = 1
+        } else {
+          obj[it[action]]++
+        }
+      })
+      return obj
     }
   }
 }
