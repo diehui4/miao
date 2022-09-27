@@ -388,10 +388,10 @@ var diehui4 = {
     let obj = {}
     if (typeof (action) === 'function') {
       collection.forEach(element => {
-        if (!(action(a) in obj)) {
-          obj[action(a)] = 1
+        if (!(action(element) in obj)) {
+          obj[action(element)] = 1
         } else {
-          obj[action(a)]++
+          obj[action(element)]++
         }
       });
       return obj
@@ -403,6 +403,28 @@ var diehui4 = {
         } else {
           obj[it[action]]++
         }
+      })
+      return obj
+    }
+  },
+  groupBy(collection, action) {
+    let obj = {}
+    if (typeof (action) === 'function') {
+      collection.forEach(element => {
+        if (!(action(element) in obj)) {
+          obj[action(element)] = []
+        }
+        obj[action(element)].push(element)
+
+      });
+      return obj
+    }
+    if (typeof (action) === 'string') {
+      collection.forEach(it => {
+        if (!(it[action] in obj)) {
+          obj[it[action]] = []
+        }
+        obj[it[action]].push(it)
       })
       return obj
     }
