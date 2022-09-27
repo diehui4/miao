@@ -314,5 +314,86 @@ var diehui4 = {
     }
     return ary
   },
-
+  every(collection, action) {
+    if (typeof (action) === 'boolean') {
+      for (let k of collection) {
+        if (!k) {
+          return false
+        }
+      }
+    }
+    if (typeof (action) === 'object') {
+      for (let i = 0; i < collection.length; i++) {
+        for (let k in collection[i]) {
+          if (k in action && action[k] != collection[i][k]) {
+            return false
+          }
+        }
+      }
+    }
+    if (Array.isArray(action)) {
+      for (let i = 0; i < collection.length; i++) {
+        if (collection[i][action[0]] != action[1]) {
+          return false
+        }
+      }
+    }
+    if (typeof (action) === 'string') {
+      for (let i = 0; i < collection.length; i++) {
+        if (!collection[i].action) {
+          return false
+        }
+      }
+    }
+    return true
+  },
+  some(collection, action) {
+    if (typeof (action) === 'boolean') {
+      for (let k of collection) {
+        if (k) {
+          return true
+        }
+      }
+    }
+    if (typeof (action) === 'object') {
+      for (let i = 0; i < collection.length; i++) {
+        let istrue = true
+        for (let k in collection[i]) {
+          if (k in action && action[k] != collection[i][k]) {
+            istrue = false
+          }
+        }
+        if (istrue) {
+          return true
+        }
+      }
+    }
+    if (Array.isArray(action)) {
+      for (let i = 0; i < collection.length; i++) {
+        if (collection[i][action[0]] == action[1]) {
+          return true
+        }
+      }
+    }
+    if (typeof (action) === 'string') {
+      for (let i = 0; i < collection.length; i++) {
+        if (collection[i][action]) {
+          return true
+        }
+      }
+    }
+    return false
+  },
+  countBy(collection, action) {
+    if (typeof (action) === 'function') {
+      let obj = {}
+      collection.forEach(element => {
+        if (!(action(element) in obj)) {
+          obj[action(element)] = 1
+        } else {
+          obj[action(element)]++
+        }
+      });
+    }
+  }
 }
