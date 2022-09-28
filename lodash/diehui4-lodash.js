@@ -447,12 +447,12 @@ var diehui4 = {
   forEach(collection, action) {
     if (Array.isArray(collection)) {
       for (let i = 0; i < collection.length; i++) {
-        action(collection[i])
+        action(collection[i], i, collection)
       }
     }
     if (typeof (collection) === 'object') {
       for (let k in collection) {
-        action(collection[k], k)
+        action(collection[k], k, collection)
       }
     }
   },
