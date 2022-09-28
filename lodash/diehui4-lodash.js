@@ -479,5 +479,45 @@ var diehui4 = {
     }
     return ary
   },
-
+  filter(collection, action) {
+    let ary = []
+    if (typeof action === 'function') {
+      for (let k of collection) {
+        if (action(k)) {
+          ary.push(k)
+        }
+      }
+    } else if (Array.isArray(action)) {
+      for (let k of collection) {
+        let istrue = true
+        for (let i = 0; i < action.length; i += 2) {
+          if (action[i] in k && k[action[i]] !== action[i + 1]) {
+            istrue = false
+          }
+        }
+        if (istrue) {
+          ary.push(k)
+        }
+      }
+    } else if (typeof action === 'string') {
+      for (let k of collection) {
+        if (k[action]) {
+          ary.push(k)
+        }
+      }
+    } else {
+      for (let k of collection) {
+        let istrue = true
+        for (let j in action) {
+          if (j in k && k[j] != action[j]) {
+            istrue = false
+          }
+        }
+        if (istrue) {
+          ary.push(k)
+        }
+      }
+    }
+    return ary
+  }
 }
