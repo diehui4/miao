@@ -456,5 +456,19 @@ var diehui4 = {
       }
     }
   },
+  map(collection, action) {
+    let ary = []
+    if (typeof (action) === 'function') {
+      for (let i = 0; i < collection; i++) {
+        ary.push(action(collection[i], i, collection))
+      }
+    }
+    if (typeof (action) === 'string') {
+      for (let k of collection) {
+        ary.push(k[action])
+      }
+    }
+    return ary
+  },
 
 }
