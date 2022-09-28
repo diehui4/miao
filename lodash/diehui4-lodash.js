@@ -428,5 +428,33 @@ var diehui4 = {
       })
       return obj
     }
-  }
+  },
+  keyBy(array, action) {
+    let obj = {}
+    if (typeof (action) === 'function') {
+      for (const k of array) {
+        obj[action(k)] = k
+      }
+      return obj
+    }
+    if (typeof (action) === 'string') {
+      for (const k of array) {
+        obj[k[action]] = k
+      }
+      return obj
+    }
+  },
+  forEach(collection, action) {
+    if (Array.isArray(collection)) {
+      for (let i = 0; i < collection.length; i++) {
+        action(collection[i])
+      }
+    }
+    if (typeof (collection) === 'object') {
+      for (let k in collection) {
+        action(collection[k], k)
+      }
+    }
+  },
+
 }
