@@ -463,13 +463,11 @@ var diehui4 = {
       for (let i = 0; i < collection.length; i++) {
         ary.push(action(collection[i], i, collection))
       }
-    }
-    if (typeof (collection) === 'object' && typeof (action) === 'function') {
+    } else if (typeof (collection) === 'object' && typeof (action) === 'function') {
       for (let k in collection) {
         ary.push(action(collection[k], k, collection))
       }
-    }
-    if (Array.isArray(collection) && typeof (action) === 'string') {
+    } else if (Array.isArray(collection) && typeof (action) === 'string') {
       let a = action.split('.')
       for (let k of collection) {
         let target = k
