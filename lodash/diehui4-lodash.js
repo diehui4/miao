@@ -455,15 +455,37 @@ var diehui4 = {
         action(collection[k], k, collection)
       }
     }
+    return collection
   },
   map(collection, action) {
     let ary = []
-    if (typeof (action) === 'function') {
+    if (Array.isArray(collection) && typeof (action) === 'function') {
       for (let i = 0; i < collection.length; i++) {
         ary.push(action(collection[i], i, collection))
       }
     }
-    if (typeof (action) === 'string') {
+    if (typeof (collection) === 'object' && typeof (action) === 'function') {
+      for (let k in collection) {
+        ary.push(action(collection[k], k, collection))
+      }
+    }
+    if (typeof (collection) === 'object' && typeof (action) === 'string') {
+      function getObjectValue(obj) {
+        let ary = []
+        for (let k in obj) {
+          ary.push(obj[k])
+        }
+        return ary
+      }
+      for (let k in collection) {
+        if (typeof (collection[k]) === 'object') {
+          ary.concat(getObjectValue(collection[k]))
+        } else {
+          ary.push(collection[k])
+        }
+      }
+    }
+    if (Array.isArray(collection) && typeof (action) === 'string') {
       for (let k of collection) {
         ary.push(k[action])
       }
