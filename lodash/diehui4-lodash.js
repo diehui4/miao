@@ -469,25 +469,14 @@ var diehui4 = {
         ary.push(action(collection[k], k, collection))
       }
     }
-    if (typeof (collection) === 'object' && typeof (action) === 'string') {
-      function getObjectValue(obj) {
-        let ary = []
-        for (let k in obj) {
-          ary.push(obj[k])
-        }
-        return ary
-      }
-      for (let k in collection) {
-        if (typeof (collection[k]) === 'object') {
-          ary.concat(getObjectValue(collection[k]))
-        } else {
-          ary.push(collection[k])
-        }
-      }
-    }
     if (Array.isArray(collection) && typeof (action) === 'string') {
+      let a = action.split('.')
       for (let k of collection) {
-        ary.push(k[action])
+        let target = k
+        for (let j of a) {
+          target = target[j]
+        }
+        ary.push(target)
       }
     }
     return ary
