@@ -459,7 +459,7 @@ var diehui4 = {
   map(collection, action) {
     let ary = []
     if (typeof (action) === 'function') {
-      for (let i = 0; i < collection; i++) {
+      for (let i = 0; i < collection.length; i++) {
         ary.push(action(collection[i], i, collection))
       }
     }
