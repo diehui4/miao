@@ -534,5 +534,49 @@ var diehui4 = {
       }
     }
     return accumulator
-  }
+  },
+  reduceRight(collection, action, accumulator) {
+    if (Array.isArray(collection)) {
+      for (let k = collection.length - 1; k >= 0; k--) {
+        accumulator = action(accumulator, collection[k], collection)
+      }
+    }
+    return accumulator
+  },
+  size(collection) {
+    if (Array.isArray(collection) || typeof collection === 'string') {
+      return collection.length
+    }
+    if (typeof collection === 'object') {
+      let count = 0
+      for (let k in collection) {
+        count++
+      }
+      return count
+    }
+  },
+  sortBy(collection, action) {
+    for (let j = 0; j < action.length; j++) {
+      if (typeof action[j] === 'function') {
+        for (let i = 1; i < collection.length; i++) {
+          for (let k = 0; k < collection.length - i; k++) {
+            if (action[j](collection[k]) > action[j](collection[k + 1])) {
+              [collection[k], collection[k + 1]] = [collection[k + 1], collection[k]]
+            }
+          }
+        }
+      }
+      if (typeof action[j] === 'string') {
+        for (let i = 1; i < collection.length; i++) {
+          for (let k = 0; k < collection.length - i; k++) {
+            if (collection[k][action[j]] > collection[k + 1][action[j]]) {
+              [collection[k], collection[k + 1]] = [collection[k + 1], collection[k]]
+            }
+          }
+        }
+      }
+    }
+    return collection
+  },
+
 }
