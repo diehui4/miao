@@ -578,5 +578,14 @@ var diehui4 = {
     }
     return collection
   },
+  sample(collection) {
+    return collection[Math.floor(Math.random() * collection.length)]
+  },
+  isUndefined(val) {
+    if (val === undefined) {
+      return true
+    }
+    return false
+  },
 
 }
