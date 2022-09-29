@@ -519,5 +519,20 @@ var diehui4 = {
       }
     }
     return ary
+  },
+  reduce(collection, action, accumulator) {
+    if (Arrar.isArray(collection)) {
+      if (!accumulator) {
+        accumulator = 0
+      }
+      for (let k of collection) {
+        action(accumulator, k, collection)
+      }
+    } else if (typeof collection === 'object') {
+      for (let k in collection) {
+        action(accumulator, collection[k], k)
+      }
+    }
+    return accumulator
   }
 }
