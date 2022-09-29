@@ -587,5 +587,13 @@ var diehui4 = {
     }
     return false
   },
-
+  isNaN(val) {
+    if (this.isUndefined(val)) {
+      return false
+    }
+    if (val._proto_ === Number._proto_ && val.toString() === 'NaN') {
+      return true
+    }
+    return false
+  }
 }
