@@ -595,5 +595,5 @@ var diehui4 = {
       return true
     }
     return false
-  }
+  },
 }
