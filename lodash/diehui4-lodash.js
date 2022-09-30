@@ -588,13 +588,118 @@ var diehui4 = {
     return false
   },
   isNaN(val) {
-    if (val === undefined) {
-      return false
-    }
-    if ((val._proto_ === Number._proto_) && (val.toString() === 'NaN')) {
+    if ((typeof val === 'number') && (val.toString() === 'NaN')) {
       return true
     }
     return false
   },
+  isNull(val) {
+    if (typeof val === 'object' && val.toString() === 'Null') {
+      return true
+    }
+    return false
+  },
+  isNil(val) {
+    return this.isNull(val) || this.isUndefined(val)
+  },
+  max(array) {
+    let max = array[0]
+    for (let k of array) {
+      if (k > max) {
+        max = k
+      }
+    }
+    return max
+  },
+  max(array) {
+    let min = array[0]
+    for (let k of array) {
+      if (k < min) {
+        min = k
+      }
+    }
+    return min
+  },
+  sum(array) {
+    let result = 0
+    for (let k of array) {
+      result += k
+    }
+    return result
+  },
+  sumBy(array, f) {
+    let result = 0
+    for (let k of array) {
+      result += f(k)
+    }
+    return result
+  },
 
+  dealFunction(val) {
+    return val
+  },
+  property(val) {
+    return function (obj) {
+      return obj[val]
+    }
+  },
+  matchesProperty(array) {
+    let [key, val] = array
+    return function (obj) {
+      return obj[key] == val
+    }
+
+  },
+  matches(target) {
+    return function (obj) {
+      for (let k in obj) {
+        if (!(k in target) || obj[k] != target[k]) {
+          return false
+        }
+      }
+      return true
+    }
+  },
+  iteratee(action) {
+    if (typeof action === 'function') {
+      return this.dealFunction(action)
+    }
+    if (typeof action === 'string') {
+      return this.property(action)
+    }
+    if (Array.isArray(action)) {
+      return this.matchesProperty(action)
+    }
+    if (typeof action === 'object') {
+      return this.matches(action)
+    }
+  },
+  differenceBy(array, ...values) {
+    let ary = [...values]
+    let length = ary.length
+    if (Array.isArray(ary[length - 1])) {
+      var action = it => it
+    } else {
+      action = this.iteratee(ary[length - 1])
+      length = length - 1
+    }
+    let map = new Map()
+    let result = []
+    for (let i = 0; i < length; i++) {
+      for (let k of ary[i]) {
+        if (!map.has(action(k))) {
+          map.set(action(k), k)
+        }
+      }
+    }
+    for (let k of array) {
+      if (!map.has(action(k))) {
+        result.push(k)
+      }
+    }
+    return result
+  },
+  differenceWith(array, ...val) {
+    return this.differenceBy(array, ...val)
+  }
 }
