@@ -588,12 +588,13 @@ var diehui4 = {
     return false
   },
   isNaN(val) {
-    if (this.isUndefined(val)) {
+    if (val === undefined) {
       return false
     }
-    if (val._proto_ === Number._proto_ && val.toString() === 'NaN') {
+    if ((val._proto_ === Number._proto_) && (val.toString() === 'NaN')) {
       return true
     }
     return false
   },
+
 }
