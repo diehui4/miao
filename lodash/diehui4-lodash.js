@@ -588,16 +588,16 @@ var diehui4 = {
     return false
   },
   isNaN(val) {
-    if ((typeof val === 'number') && (val.toString() === 'NaN')) {
+    if (val === undefined) {
+      return false
+    }
+    if (val.__proto__ === Number.prototype && (val.toString() === 'NaN')) {
       return true
     }
     return false
   },
   isNull(val) {
-    if (typeof val === 'object' && val.toString() === 'Null') {
-      return true
-    }
-    return false
+    return val === null
   },
   isNil(val) {
     return this.isNull(val) || this.isUndefined(val)
@@ -611,7 +611,7 @@ var diehui4 = {
     }
     return max
   },
-  max(array) {
+  mix(array) {
     let min = array[0]
     for (let k of array) {
       if (k < min) {
@@ -627,10 +627,10 @@ var diehui4 = {
     }
     return result
   },
-  sumBy(array, f) {
+  sumBy(array, iteratee) {
     let result = 0
     for (let k of array) {
-      result += f(k)
+      result += iteratee(k)
     }
     return result
   },
