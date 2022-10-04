@@ -627,10 +627,11 @@ var diehui4 = {
     }
     return result
   },
-  sumBy(array, iteratee) {
+  sumBy(array, action) {
+    action = this.iteratee(action)
     let result = 0
     for (let k of array) {
-      result += iteratee(k)
+      result += action(k)
     }
     return result
   },
