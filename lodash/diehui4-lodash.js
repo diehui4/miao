@@ -236,6 +236,23 @@ var diehui4 = {
     }
     return ary
   },
+  intersectionBy(array, val, action) {
+    action = this.iteratee(action)
+    let map = new Map()
+    let result = []
+    for (let k of val) {
+      if (!map.has(action(k))) {
+        map.set(action(k), k)
+      }
+    }
+    for (let k of array) {
+      if (!map.has(action(k))) {
+        result.push(k)
+      }
+    }
+    return result
+  },
+
   lastIndexOf: function (array, value, fromIndex = array.length - 1) {
     for (var i = fromIndex; i >= 0; i--) {
       if (array[i] == value) {
@@ -700,7 +717,34 @@ var diehui4 = {
     }
     return result
   },
-  differenceWith(array, ...val) {
-    return this.differenceBy(array, ...val)
-  }
+  differenceWith(array, val, action) {
+    action = this.iteratee(action)
+    let result = []
+    for (let k of array) {
+      if (!action(val, k)) {
+        result.push(k)
+      }
+    }
+    return result
+  },
+  dropRightWhile(array, action) {
+    action = this.iteratee(action)
+    let result = []
+    for (let k of array) {
+      if (action(k)) {
+        result.push(k)
+      }
+    }
+    return result
+  },
+  dropWhile(array, action) {
+    action = this.iteratee(action)
+    let result = []
+    for (let k of array) {
+      if (!action(k)) {
+        result.push(k)
+      }
+    }
+    return result
+  },
 }
