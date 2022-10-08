@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    *{
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    #center{
+      display: flex;
+      flex-direction: column;
+      padding: 5px 10px;
+      width: 520px;
+      height: 100vh;
+      background-color: rgb(229, 229, 229);
+      margin: auto;
+    }
+    ::-webkit-input-placeholder{
+      color: rgb(153, 153, 153);
+      font-size: 8px;
+    }
+    #regularExpression,#textString{
+      margin-top: 5px;
+      width: 500px;
+      border: 1px solid rgb(210, 210, 210);
+      border-radius: 1px;
+      padding-left: 5px;
+      font-family: monospace;
+    }
+    #regularExpression{
+      height: 30px;
+    }
+    #textString{
+      resize: none;
+      flex-grow: 0.5;
+      font-size: 10px;
+    }
+    h5{
+      line-height: 20px;
+    }
+    #textString strong{
+      background-color: rgba(0, 0, 255, 0.53)(0, 0, 255, 0.53);
+    }
+
+    #result{
+    width: 500px;
+    margin-top: 5px;
+    border-radius: 1px;
+    border: 1px solid rgb(210, 210, 210);
+    white-space: pre-wrap;
+    overflow-wrap: break-word;
+    overflow-y: scroll;
+    flex-grow: 1;
+    padding-left: 5px;
+    background-color: white;
+    }
+    #result strong:nth-child(2n-1){
+      background-color: #9fcfff;
+    }
+    #result strong:nth-child(2n){
+      background-color: #d5ebff;
+    }
+    #result strong:empty{
+      display: inline-block;
+      height: 1em;
+      background-image: linear-gradient(red,red);
+      width: 2px;
+      margin-left: -1px;
+      margin-right: -1px;
+    }
+  </style>
+</head>
+<body>
+  <div id="center">
+    <h5>REGULAR EXPRESSION</h5>
+    <div>
+    <label><input type="checkbox" checked name="1" id="flagGlobal" onchange="run()">g</label>
+    <label><input type="checkbox" name="2" id="flagSingle" onchange="run()">s</label>
+    <label><input type="checkbox" name="3" id="flagDollar" onchange="run()">d</label>
+    <label><input type="checkbox" name="4" id="flagUngreedy" onchange="run()">u</label>
+    <label><input type="checkbox" name="5" id="flagMulti" checked onchange="run()">m</label>
+    <label><input type="checkbox" name="6" id="flaginsensitive" onchange="run()">i</label><span id="info"></span></div>
+    <hr>
+    <input type="text" id="regularExpression" placeholder="insert your regular expression here" value="\d+" onkeyup="run()">
+    <h5>TEST STRING</h5>
+    <hr>
+    <textarea name="" id="textString" onkeyup="run()" cols="30" rows="10" placeholder="insert your test string here" onscroll="result.scrollTo(0,textString.scrollTop)">abc123df456cc</textarea>
+    <pre id="result"></pre>
+  </div>
+</body>
+<script>
+  function run(){
+    let flag = ''
+    if(flagGlobal.checked){
+      flag += 'g'
+    }
+    if(flagSingle.checked){
+      flag += 's'
+    }
+    if(flagDollar.checked){
+      flag += 'd'
+    }
+    if(flagUngreedy.checked){
+      flag += 'u'
+    }
+    if(flagMulti.checked){
+      flag += 'm'
+    }
+    if(flaginsensitive.checked){
+      flag += 'i'
+    }
+    try{
+      var rex = new RegExp(regularExpression.value,flag)
+    }catch(e){
+      info.innerHTML=e
+      return
+    }
+    info.innerHTML=''
+    let text = textString.value
+    let html =''
+    let match = null
+    let lastIndex = 0
+    while(match = rex.exec(text)){
+      html+= text.slice(lastIndex,match.index)
+      html+='<strong>'+match[0]+'</strong>'
+        lastIndex = rex.lastIndex
+        if(!rex.global){
+          lastIndex = match.index+match[0].length
+          break
+        }
+        if(match[0].length==0){
+          rex.lastIndex++
+        }
+    }
+    html+=text.slice(lastIndex)
+    result.innerHTML = html
+  }
+</script>
+</html>
